@@ -24,3 +24,8 @@ def step_impl(context, status_code):
 @when("I save the response ID as {project_id}")
 def step_impl(context, project_id):
     exec(f"context.{project_id} = context.response.json()['id']")
+
+
+@step("I expect the response match with the schema {json_schema_name}")
+def step_impl(context, json_schema_name):
+    expect(common_utils.schema_validation(json_schema_name,context.response.json())).to_be(True)
