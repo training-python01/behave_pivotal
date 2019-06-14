@@ -23,8 +23,9 @@ def schema_validation(json_schema_name, instance):
     try:
         validate(instance=instance, schema=schema)
         return True
-    except:
-        raise ValidationError("It was validation error with schema")
+    except ValidationError as error:
+        print("Schema Validation Failed: {}".format, error.message)
+        raise
 
 
 def load_schema(json_schema_name):

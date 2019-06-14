@@ -1,118 +1,6 @@
 {
   "title": "Project Schema",
   "type": "object",
-  "additionalProperties": true,
-  "properties": {
-    "account_id": {
-      "type": "integer",
-      "enum":[926683]
-    },
-    "atom_enabled": {
-      "type": "boolean"
-    },
-    "automatic_planning": {
-      "type": "boolean"
-    },
-    "bugs_and_chores_are_estimatable": {
-      "type": "boolean"
-    },
-    "created_at": {
-      "type": "string",
-      "pattern": "^(.*)$"
-    },
-    "current_iteration_number": {
-      "type": "integer"
-    },
-    "description": {
-      "type": "string"
-    },
-    "enable_following": {
-      "type": "boolean"
-    },
-    "enable_incoming_emails": {
-      "type": "boolean"
-    },
-    "enable_tasks": {
-      "type": "boolean"
-    },
-    "has_google_domain": {
-      "type": "boolean"
-    },
-    "id": {
-      "type": "integer"
-    },
-    "initial_velocity": {
-      "type": "integer"
-    },
-    "iteration_length": {
-      "type": "integer"
-    },
-    "kind": {
-      "type": "string",
-      "enum":["project"]
-    },
-    "name": {
-      "type": "string"
-    },
-    "number_of_done_iterations_to_show": {
-      "type": "integer"
-    },
-    "point_scale": {
-      "type": "string"
-    },
-    "point_scale_is_custom": {
-      "type": "boolean"
-    },
-    "profile_content": {
-      "type": "string"
-    },
-    "project_type": {
-      "type": "string"
-    },
-    "public": {
-      "type": "boolean"
-    },
-    "start_date": {
-      "type": "string",
-      "pattern": "^(.*)$"
-    },
-    "start_time": {
-      "type": "string",
-      "pattern": "^(.*)$"
-    },
-    "time_zone": {
-      "type": "object",
-      "required": [
-        "kind",
-        "olson_name",
-        "offset"
-      ],
-      "properties": {
-        "kind": {
-          "type": "string"
-        },
-        "olson_name": {
-          "type": "string"
-        },
-        "offset": {
-          "type": "string"
-        }
-      }
-    }
-  },
-  "updated_at": {
-    "type": "string",
-    "pattern": "^(.*)$"
-  },
-  "velocity_averaged_over": {
-    "type": "integer"
-  },
-  "version": {
-    "type": "integer"
-  },
-  "week_start_day": {
-    "type": "string"
-  },
   "required": [
     "account_id",
     "atom_enabled",
@@ -140,5 +28,169 @@
     "velocity_averaged_over",
     "version",
     "week_start_day"
-  ]
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "account_id": {
+      "type": "integer"
+    },
+    "atom_enabled": {
+      "type": "boolean",
+      "enum": [
+        false
+      ]
+    },
+    "automatic_planning": {
+      "type": "boolean",
+      "enum": [
+        true
+      ]
+    },
+    "bugs_and_chores_are_estimatable": {
+      "type": "boolean",
+      "enum": [
+        false
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "pattern": "^(19|2[0-9])[0-9]{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])((\\+|-)[0-1][0-9]{3})?Z$"
+    },
+    "current_iteration_number": {
+      "type": "integer",
+      "enum": [
+        1
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "enable_following": {
+      "type": "boolean",
+      "enum": [
+        true
+      ]
+    },
+    "enable_incoming_emails": {
+      "type": "boolean",
+      "enum": [
+        true
+      ]
+    },
+    "enable_tasks": {
+      "type": "boolean",
+      "enum": [
+        true
+      ]
+    },
+    "has_google_domain": {
+      "type": "boolean",
+      "enum": [
+        false
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "initial_velocity": {
+      "type": "integer",
+      "enum": [
+        10
+      ]
+    },
+    "iteration_length": {
+      "type": "integer"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "project"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "number_of_done_iterations_to_show": {
+      "type": "integer",
+      "enum": [
+        4
+      ]
+    },
+    "point_scale": {
+      "type": "string",
+      "enum": [
+        "0,1,2,3"
+      ]
+    },
+    "point_scale_is_custom": {
+      "type": "boolean"
+    },
+    "profile_content": {
+      "type": "string"
+    },
+    "project_type": {
+      "type": "string",
+      "enum": [
+        "demo",
+        "private",
+        "public",
+        "shared"
+      ]
+    },
+    "public": {
+      "type": "boolean",
+      "enum": [
+        false
+      ]
+    },
+    "start_date": {
+      "type": "string",
+      "pattern": "^(19|2[0-9])[0-9]{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])((\\+|-)[0-1][0-9]{3})?Z$"
+    },
+    "start_time": {
+      "type": "string",
+      "pattern": "^(19|2[0-9])[0-9]{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])((\\+|-)[0-1][0-9]{3})?Z$"
+    },
+    "time_zone": {
+      "type": "object",
+      "required": [
+        "kind",
+        "olson_name",
+        "offset"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "olson_name": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "string"
+        }
+      }
+    },
+    "updated_at": {
+      "type": "string",
+      "pattern": "^(19|2[0-9])[0-9]{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])((\\+|-)[0-1][0-9]{3})?Z$"
+    },
+    "velocity_averaged_over": {
+      "type": "integer",
+      "enum": [
+        3
+      ]
+    },
+    "version": {
+      "type": "integer",
+      "enum": [
+        1
+      ]
+    },
+    "week_start_day": {
+      "type": "string",
+      "enum": [
+        "Monday"
+      ]
+    }
+  }
 }
