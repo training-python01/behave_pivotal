@@ -1,21 +1,22 @@
 import json
 import os
 import re
+
 from jsonschema import validate
 from jsonschema import ValidationError
 
 
 def map_endpoint(context, end_point):
     split_endpoint = end_point.split("/")
-    build_enpoint = []
+    build_endpoint = []
     for url in split_endpoint:
         if re.match(r'^\{[a-zA-Z]+[.][a-zA-Z_]+\}$', url):
             s = url.replace("{", '').replace("}", '')
             id = eval(s)
-            build_enpoint.append(str(id))
+            build_endpoint.append(str(id))
             continue
-        build_enpoint.append(url)
-    return '/'.join(build_enpoint)
+        build_endpoint.append(url)
+    return '/'.join(build_endpoint)
 
 
 def schema_validation(json_schema_name, instance):
