@@ -8,7 +8,7 @@ Feature: Verify CRUD operations for Project
   "name" : "behave project test-01"
   }
   '''
-    When I save the response ID as project_id
+    When I save the project response
     Then I expect status code 200
 
   @deleteProject
@@ -18,7 +18,7 @@ Feature: Verify CRUD operations for Project
 
   @deleteProject
   Scenario: Validate PUT method - Project
-    Given I send a PUT request to /projects/{context.project_id}
+    Given I send a PUT request to /projects/{project.id}
   '''
   {
   "name" : "Behave project test-01 - Updated"
@@ -28,5 +28,5 @@ Feature: Verify CRUD operations for Project
 
   @deleteProject
   Scenario: Validate DELETE method - Project
-    Given  I send a DELETE request to /projects/{context.project_id}
+    Given  I send a DELETE request to /projects/{project.id}
     Then I expect status code 204

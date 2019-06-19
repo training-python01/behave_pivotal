@@ -14,6 +14,8 @@ def step_impl(context, method, end_point):
         context.response = context.request.execute_request(method, url)
 
 
-@step("I save the response ID as {value}")
-def step_impl(context, value):
-    exec(f"context.{value} = context.response.json()['id']")
+@step("I save the {key} response")
+def step_impl(context, key):
+    if not hasattr(context, 'response_list'):
+        context.response_list = {}
+    context.response_list[key]= context.response.json()
