@@ -7,12 +7,12 @@ Feature: Verify CRUD operation for Story
   "name" : "behave project test-01"
   }
   '''
-    When I save the response ID as project_id
+    When I save the response as project
     Then I expect status code 200
 
   @deleteProject
   Scenario: Validate POST method - Story
-    Given I send a POST request to /projects/{context.project_id}/stories
+    Given I send a POST request to /projects/{project.id}/stories
   '''
   {
   "name" : "behave story test-01"

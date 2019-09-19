@@ -11,9 +11,10 @@ def map_endpoint(context, end_point):
     build_endpoint = []
     for url in split_endpoint:
         if re.match(r'^\{[a-zA-Z]+[.][a-zA-Z_]+\}$', url):
-            s = url.replace("{", '').replace("}", '')
-            id = eval(s)
-            build_endpoint.append(str(id))
+            removed_brackets = re.sub('[{}]', '', url)
+            key = removed_brackets.split('.')[0]
+            object_id = context.response_list[key]['id']
+            build_endpoint.append(str(object_id))
             continue
         build_endpoint.append(url)
     return '/'.join(build_endpoint)
