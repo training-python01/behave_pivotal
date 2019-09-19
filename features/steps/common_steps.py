@@ -14,7 +14,7 @@ def step_impl(context, method, end_point):
         context.response = context.request.execute_request(method, url)
 
 
-@step("I save the {key} response")
+@step("I save the response as {key}")
 def step_impl(context, key):
     if not hasattr(context, 'response_list'):
         context.response_list = {}

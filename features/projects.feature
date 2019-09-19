@@ -8,7 +8,7 @@ Feature: Verify CRUD operations for Project
   "name" : "behave project test-01"
   }
   '''
-    When I save the project response
+    When I save the response as project
     Then I expect status code 200
 
   @deleteProject

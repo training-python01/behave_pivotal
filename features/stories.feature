@@ -7,7 +7,7 @@ Feature: Verify CRUD operation for Story
   "name" : "behave project test-01"
   }
   '''
-    When I save the project response
+    When I save the response as project
     Then I expect status code 200
 
     Given I send a POST request to /projects/{project.id}/stories
@@ -16,7 +16,7 @@ Feature: Verify CRUD operation for Story
   "name" : "behave story test-01"
   }
   '''
-    When I save the story response
+    When I save the response as story
     Then I expect status code 200
 
   @deleteProject
